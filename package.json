@@ -2,9 +2,12 @@
   "name": "node-db3-challenge",
   "version": "1.0.0",
   "description": "Challenge for Node DB3 Module",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "server": "nodemon index.js"
+    "build": "babel src --out-dir dist",
+    "restart": "rimraf dist && npm run build && npm run start",
+    "dev": "nodemon --exec npm run restart",
+    "start": "node dist/index.js"
   },
   "repository": {
     "type": "git",
@@ -23,6 +26,25 @@
     "sqlite3": "^4.0.9"
   },
   "devDependencies": {
-    "nodemon": "^1.19.1"
+    "@babel/cli": "^7.6.0",
+    "@babel/core": "^7.6.0",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
+    "@babel/preset-env": "^7.6.0",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.3.0",
+    "eslint-config-prettier": "^6.3.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-friendly-formatter": "^4.0.1",
+    "eslint-loader": "^3.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "nodemon": "^1.19.1",
+    "prettier": "^1.18.2",
+    "rimraf": "^3.0.0"
   }
 }
